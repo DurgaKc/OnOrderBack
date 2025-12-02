@@ -12,7 +12,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: [
+    'https://onlinefoodorderfront.onrender.com',  // Your frontend
+    'http://localhost:5173'  // Local development
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
+
 
 // Serve uploaded images
 app.use(express.static("public"));
