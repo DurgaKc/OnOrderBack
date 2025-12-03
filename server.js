@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: [
-    'https://onlinefoodorderfront.onrender.com',  // Your frontend
+    'https://onlinefoodorder-bye1.onrender.com',  // Your frontend
     'http://localhost:5173'  // Local development
   ],
   credentials: true,
@@ -34,6 +34,6 @@ app.use("/", require("./routes/user"))
 app.use("/items", require("./routes/items"))
 app.use("/order", require("./routes/order"))
 
-app.listen(PORT, (err) => {
-  console.log(`app is running on port ${PORT}`)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`)
 })
